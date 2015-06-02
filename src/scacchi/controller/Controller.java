@@ -49,8 +49,7 @@ public class Controller{
 					setMinacceRe(caselle[i][j]); 
 			}
 	}
-	/**
-	 * @param daControllare
+	/*
 	 * Setta le minacce delle caselle di destinazione legali per il pedone
 	 */
 	private void setMinaccePedone(Casella daControllare){
@@ -86,7 +85,7 @@ public class Controller{
 	private void setMinacceTorre(Casella daControllare){
 		int i = daControllare.getRow()-1;
 		int j = daControllare.getColumn();
-			//while che controlla il movimento della torre verso sù
+			//while che controlla il movimento della torre verso su
 			while(i >= 0){
 				if(caselle[i][j].isEmpty()) //se la casella e' vuota settiamo le minacce e continuiamo a ciclare
 					if(daControllare.getColorePedina() == 0)
@@ -155,7 +154,7 @@ public class Controller{
 			
 			i = daControllare.getRow();
 			j = daControllare.getColumn() + 1; 
-			//idem verso giù
+			//idem verso giu'
 			while(j <= 7){
 				if(caselle[i][j].isEmpty())
 					if(daControllare.getColorePedina() == 0)
@@ -189,7 +188,7 @@ public class Controller{
 			}
 			 i = daControllare.getRow();
 			 j = daControllare.getColumn() - 1;
-			//idem verso sù
+			//idem verso su
 			while(j >= 0){
 				if(caselle[i][j].isEmpty())
 					if(daControllare.getColorePedina() == 0)
@@ -227,7 +226,7 @@ public class Controller{
 	private void setMinacceAlfiere(Casella daControllare){//funziona esattamente come la torre, ma in diagonale per cui i controlli sono effettuati sia su i che su j
 		int i = daControllare.getRow() - 1;
 		int j = daControllare.getColumn() + 1;
-			//andiamo a controllare in diagonale verso sù a destra e fà la stessa cosa della torre
+			//andiamo a controllare in diagonale verso su a destra e fa la stessa cosa della torre
 			while(i >= 0 && j <= 7){
 				if(caselle[i][j].isEmpty())
 					if(daControllare.getColorePedina() == 0)
@@ -264,7 +263,7 @@ public class Controller{
 		
 		    i = daControllare.getRow()+1;
 			j = daControllare.getColumn()+1;
-			//andiamo verso giù a destra
+			//andiamo verso giu' a destra
 			while(i <= 7 && j <= 7){
 				if(caselle[i][j].isEmpty())
 					if(daControllare.getColorePedina() == 0)
@@ -299,7 +298,7 @@ public class Controller{
 
 			i = daControllare.getRow() + 1;
 			j = daControllare.getColumn() - 1; 
-			//andiamo verso giù a sinistra
+			//andiamo verso giu' a sinistra
 			while(j >= 0 && i <= 7){
 				if(caselle[i][j].isEmpty())
 					if(daControllare.getColorePedina() == 0)
@@ -335,7 +334,7 @@ public class Controller{
 			
 			 i = daControllare.getRow() - 1;
 			 j = daControllare.getColumn() - 1;
-			 //andiamo verso sù a sinistra
+			 //andiamo verso su a sinistra
 			while(j >= 0 && i >= 0){
 				if(caselle[i][j].isEmpty())
 					if(daControllare.getColorePedina() == 0)
@@ -476,7 +475,7 @@ public class Controller{
 				if(daControllare.getColorePedina() == 1)
 					  caselle[i + 1][j].setMinacciaDaNeri(1);
 			}
-		if(i + 1 <= 7 && j - 1 >= 0)//controllo sulla casella giù a sinistra di quella del re
+		if(i + 1 <= 7 && j - 1 >= 0)//controllo sulla casella giu' a sinistra di quella del re
 			if(caselle[i + 1][j - 1].isEmpty() || caselle[i + 1][j - 1].getColorePedina() == daControllare.getColorePedina()){
 				if(daControllare.getColorePedina() == 0)
 					  caselle[i + 1][j - 1].setMinacciaDaBianchi(1);
@@ -566,12 +565,6 @@ public class Controller{
 		}
 		else	//se non entriamo nelle condizioni sopra, deselezioniamo
 			deSelectAll();
-		/*else if(caselle.thisSelected() && start == caselle){
-			deSelectAll();
-		}
-		else if(!caselle.thisSelected()){
-			deSelectAll();	
-		}*/
 		if(turn == 0)//controlliamo se vi e' scacco ad ogni turno
 			checkScaccoBianchi();
 		else
@@ -843,7 +836,6 @@ public class Controller{
 		for(int i = 0; i < 8; i++)
 			for(int j = 0; j < 8; j++)
 				if(caselle[i][j].scaccoBianchi()){
-				//	caselle[i][j].setBackground(Color.RED);
 					return true;
 				}
 		return false;
@@ -853,7 +845,6 @@ public class Controller{
 		for(int i = 0; i < 8; i++)
 			for(int j = 0; j < 8; j++)
 				if(caselle[i][j].scaccoNeri()){
-			//		caselle[i][j].setBackground(Color.RED);
 					return true;
 				}
 		return false;
